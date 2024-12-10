@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <property name="schema" value="public"/>
+    <property name="dbms" value="postgresql"/>
+
+    <!-- Length -->
+    <property name="length1" value="1"/>
+    <property name="length2" value="2"/>
+    <property name="length4" value="4"/>
+    <property name="length8" value="8"/>
+    <property name="length16" value="16"/>
+    <property name="length32" value="32"/>
+    <property name="length50" value="50"/>
+    <property name="length64" value="64"/>
+    <property name="length100" value="100"/>
+    <property name="length128" value="128"/>
+    <property name="length255" value="255"/>
+    <property name="length256" value="256"/>
+    <property name="length300" value="300"/>
+    <property name="length500" value="500"/>
+    <property name="length512" value="512"/>
+    <property name="length1000" value="1000"/>
+    <property name="length1024" value="1024"/>
+    <property name="length2048" value="2048"/>
+    <property name="length4096" value="4096"/>
+    <property name="lengthMax" value="max"/>
+
+    <!-- Data Types -->
+    <property name="varchar1" value="varchar(${length1})" dbms="${dbms}"/>
+    <property name="varchar2" value="varchar(${length2})" dbms="${dbms}"/>
+    <property name="varchar4" value="varchar(${length4})" dbms="${dbms}"/>
+    <property name="varchar8" value="varchar(${length8})" dbms="${dbms}"/>
+    <property name="varchar16" value="varchar(${length16})" dbms="${dbms}"/>
+    <property name="varchar32" value="varchar(${length32})" dbms="${dbms}"/>
+    <property name="varchar50" value="varchar(${length50})" dbms="${dbms}"/>
+    <property name="varchar64" value="varchar(${length64})" dbms="${dbms}"/>
+    <property name="varchar100" value="varchar(${length100})" dbms="${dbms}"/>
+    <property name="varchar128" value="varchar(${length128})" dbms="${dbms}"/>
+    <property name="varchar255" value="varchar(${length255})" dbms="${dbms}"/>
+    <property name="varchar256" value="varchar(${length256})" dbms="${dbms}"/>
+    <property name="varchar300" value="varchar(${length300})" dbms="${dbms}"/>
+    <property name="varchar500" value="varchar(${length500})" dbms="${dbms}"/>
+    <property name="varchar512" value="varchar(${length512})" dbms="${dbms}"/>
+    <property name="varchar1000" value="varchar(${length1000})" dbms="${dbms}"/>
+    <property name="varchar1024" value="varchar(${length1024})" dbms="${dbms}"/>
+    <property name="varchar2048" value="varchar(${length2048})" dbms="${dbms}"/>
+    <property name="varchar4096" value="varchar(${length4096})" dbms="${dbms}"/>
+    <property name="varcharMax" value="text" dbms="${dbms}"/>
+
+    <property name="int" value="int" dbms="${dbms}"/>
+    <property name="bigInt" value="bigint" dbms="${dbms}"/>
+    <property name="numeric" value="numeric(21, 6)" dbms="${dbms}"/>
+    <property name="uniqueId" value="uniqueidentifier" dbms="${dbms}"/>
+    <property name="bool" value="bool" dbms="${dbms}"/>
+    <property name="false" value="'0'" dbms="${dbms}"/>
+    <property name="char2" value="char(2)" dbms="${dbms}"/>
+    <property name="char3" value="char(3)" dbms="${dbms}"/>
+    <property name="varbinary1000" value="varbinary(${length1000})" dbms="${dbms}"/>
+    <property name="varbinaryMax" value="varbinary(${lengthMax})" dbms="${dbms}"/>
+    <property name="date" value="date" dbms="${dbms}"/>
+    <property name="datetime2" value="datetime2" dbms="${dbms}"/>
+
+    <!-- Functions -->
+    <property name="newUniqueId" value="gen_random_uuid()" dbms="${dbms}"/>
+    <property name="newSequentialId" value="uuid_generate_v1()" dbms="${dbms}"/>
+    <property name="currentDate" value="NOW()" dbms="${dbms}"/>
+
+    <!-- Common Columns -->
+    <property name="global.table.column.id" value="id" dbms="${dbms}"/>
+    <property name="global.table.column.created_by" value="created_by" dbms="${dbms}"/>
+    <property name="global.table.column.created_at" value="created_at" dbms="${dbms}"/>
+    <property name="global.table.column.last_modified_by" value="last_modified_by" dbms="${dbms}"/>
+    <property name="global.table.column.last_modified_at" value="last_modified_at" dbms="${dbms}"/>
+    <property name="global.table.column.is_deleted" value="is_deleted" dbms="${dbms}"/>
+</databaseChangeLog>

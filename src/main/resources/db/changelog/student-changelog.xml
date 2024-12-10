@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <property name="table.name" value="students"/>
+    
+    <changeSet author="meheedihasaan" id="${table.name}-1.0.0">
+        <createTable tableName="${table.name}" schemaName="${schema}">
+            <!-- Common Columns-->
+            <column computed="false" name="${global.table.column.id}" type="${uniqueId}">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK__${table.name}"/>
+            </column>
+
+            <column computed="false" name="${global.table.column.created_by}" type="${varchar255}">
+                <constraints nullable="false"/>
+            </column>
+
+            <column computed="false" name="${global.table.column.created_at}" type="${datetime2}">
+                <constraints nullable="false"/>
+            </column>
+
+            <column computed="false" name="${global.table.column.last_modified_by}" type="${varchar255}">
+                <constraints nullable="false"/>
+            </column>
+
+            <column computed="false" name="${global.table.column.last_modified_at}" type="${datetime2}">
+                <constraints nullable="false"/>
+            </column>
+
+            <column computed="false" defaultValueComputed="${false}" name="${global.table.column.is_deleted}" type="${bool}"/>
+
+            <!-- Entity -->
+            <column computed="false" name="name" type="${varchar255}"/>
+            <column computed="false" name="email" type="${varchar255}"/>
+            <column computed="false" name="student_id" type="${varchar50}"/>
+            <column computed="false" name="gender" type="${varchar255}"/>
+            <column computed="false" name="department_id" type="${uniqueId}"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="meheedihasaan" id="${table.name}-1.0.1">
+        <addUniqueConstraint tableName="${table.name}" columnNames="email"/>
+        <addForeignKeyConstraint baseTableName="${table.name}"
+                                 baseColumnNames="department_id"
+                                 constraintName="FK__${table.name}__departments"
+                                 referencedTableName="departments"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>
